@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "tag": "Muzyka klasyczna",
+        "articles": 15
+    },
+    {
+        "id": 2,
+        "tag": "Film polski",
+        "articles": 23
+    },
+    {
+        "id": 3,
+        "tag": "Teatr współczesny",
+        "articles": 18
+    },
+    {
+        "id": 4,
+        "tag": "Literatura piękna",
+        "articles": 12
+    },
+    {
+        "id": 5,
+        "tag": "Fotografia artystyczna",
+        "articles": 21
+    },
+    {
+        "id": 6,
+        "tag": "Malarstwo",
+        "articles": 27
+    },
+    {
+        "id": 7,
+        "tag": "Rzeźba nowoczesna",
+        "articles": 19
+    },
+    {
+        "id": 8,
+        "tag": "Architektura",
+        "articles": 24
+    },
+    {
+        "id": 9,
+        "tag": "Taniec współczesny",
+        "articles": 17
+    },
+    {
+        "id": 10,
+        "tag": "Design",
+        "articles": 20
+    },
+    {
+        "id": 11,
+        "tag": "Muzyka elektroniczna",
+        "articles": 22
+    },
+    {
+        "id": 12,
+        "tag": "Film dokumentalny",
+        "articles": 14
+    },
+    {
+        "id": 13,
+        "tag": "Opera",
+        "articles": 13
+    },
+    {
+        "id": 14,
+        "tag": "Literatura fantasy",
+        "articles": 28
+    },
+    {
+        "id": 15,
+        "tag": "Fotografia portretowa",
+        "articles": 25
+    },
+    {
+        "id": 16,
+        "tag": "Teatr klasyczny",
+        "articles": 16
+    },
+    {
+        "id": 17,
+        "tag": "Muzyka jazzowa",
+        "articles": 30
+    },
+    {
+        "id": 18,
+        "tag": "Film animowany",
+        "articles": 26
+    },
+    {
+        "id": 19,
+        "tag": "Sztuka współczesna",
+        "articles": 29
+    },
+    {
+        "id": 20,
+        "tag": "Kabaret",
+        "articles": 15
+    }
+]
