@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography, Box } from '@mui/material';
-import { Search, Star, Settings, Article } from '@mui/icons-material';
+import { Drawer, List, ListItem, ListItemIcon, Typography, Box } from '@mui/material';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import Tooltip from '@mui/material/Tooltip';
 
 const sections = {
   search: <Typography variant="h6">Sekcja wyszukiwania</Typography>,
@@ -18,23 +23,38 @@ const App = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <Drawer variant="permanent" sx={{ width: 240 }}>
-        <List>
+      <Drawer variant="permanent" sx={{ width: 240, height: 'auto', '& .MuiDrawer-paper': {
+            top: 10,
+            left: 10,
+            height: 'auto',
+            border: '1px solid rgba(0, 0, 0, 0.12)',
+            borderRadius: 3
+          }, }}>
+        <List sx={{paddingTop: 2, paddingBottom: 2}}>
           <ListItem button onClick={() => handleListItemClick('search')}>
-            <ListItemIcon><Search /></ListItemIcon>
-            <ListItemText primary="Wyszukaj" />
+            <Tooltip title="Informacje" placement="right" arrow>
+              <ListItemIcon sx={{ minWidth: 'auto' }}><InfoOutlinedIcon /></ListItemIcon>
+            </Tooltip>
           </ListItem>
           <ListItem button onClick={() => handleListItemClick('star')}>
-            <ListItemIcon><Star /></ListItemIcon>
-            <ListItemText primary="Gwiazda" />
+            <Tooltip title="Komentarze" placement="right" arrow>
+              <ListItemIcon sx={{ minWidth: 'auto' }}><ChatBubbleOutlineOutlinedIcon /></ListItemIcon>
+            </Tooltip>
           </ListItem>
           <ListItem button onClick={() => handleListItemClick('settings')}>
-            <ListItemIcon><Settings /></ListItemIcon>
-            <ListItemText primary="Ustawienia" />
+            <Tooltip title="Ustawienia" placement="right" arrow>
+              <ListItemIcon sx={{ minWidth: 'auto' }}><SettingsOutlinedIcon /></ListItemIcon>
+            </Tooltip>
           </ListItem>
           <ListItem button onClick={() => handleListItemClick('article')}>
-            <ListItemIcon><Article /></ListItemIcon>
-            <ListItemText primary="Artykuł" />
+            <Tooltip title="Tagi" placement="right" arrow>
+              <ListItemIcon sx={{ minWidth: 'auto' }}><LocalOfferOutlinedIcon /></ListItemIcon>
+            </Tooltip>
+          </ListItem>
+          <ListItem button onClick={() => handleListItemClick('article')}>
+            <Tooltip title="Użytkownik" placement="right" arrow>
+              <ListItemIcon sx={{ minWidth: 'auto' }}><PersonAddAltOutlinedIcon /></ListItemIcon>
+            </Tooltip>
           </ListItem>
         </List>
       </Drawer>
