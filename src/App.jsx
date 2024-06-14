@@ -17,7 +17,7 @@ const sections = {
 };
 
 const App = () => {
-  const [selectedSection, setSelectedSection] = useState('search');
+  const [selectedSection, setSelectedSection] = useState('');
 
   const handleListItemClick = (section) => {
     setSelectedSection(section);

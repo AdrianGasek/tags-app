@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import {
   TextField,
   Checkbox,
@@ -27,23 +27,34 @@ const StyledAutocomplete = styled(Autocomplete)({
   },
 });
 
-const Autocomplate = ({isOpen, handleClose, onInputFocus, handleAdd}) => {
+const AutocompleteComponent = ({
+  isOpen,
+  handleClose,
+  onInputFocus,
+  handleAdd,
+}) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const autocompleteRef = useRef(null);
 
   const handleChange = (event, value) => {
     setSelectedOptions(value);
-    console.log(value);
   };
 
   const handleSave = () => {
-    handleAdd(selectedOptions)
+    handleAdd(selectedOptions);
     handleClose();
-    setSelectedOptions([])
-  }
+    handleClear();
+  };
+
+  const handleClear = () => {
+    setSelectedOptions([]);
+    autocompleteRef.current.value = "";
+  };
 
   return (
     <div>
       <StyledAutocomplete
+        ref={autocompleteRef}
         sx={{
           "& .MuiAutocomplete-listbox": { maxHeight: "200px" },
           "& $.MuiOutlinedInput-root": { paddingRight: "0px" },
@@ -53,6 +64,7 @@ const Autocomplate = ({isOpen, handleClose, onInputFocus, handleAdd}) => {
         disableCloseOnSelect
         renderTags={() => null}
         getOptionLabel={(option) => option.tag}
+        value={selectedOptions}
         onChange={handleChange}
         onInputChange={onInputFocus}
         open={isOpen}
@@ -66,20 +78,21 @@ const Autocomplate = ({isOpen, handleClose, onInputFocus, handleAdd}) => {
               display: "flex",
               justifyContent: "space-between",
               border: selected ? "1px solid #1a73e8" : "0px",
-              borderRadius: '5px',
-              margin: '10px',
-              padding: '0 5px',
-              '& .MuiAutocomplete-listbox .MuiAutocomplete-option[aria-selected="true"]': {
-                backgroundColor: 'white !important',
-              }
+              borderRadius: "5px",
+              margin: "10px",
+              padding: "0 5px",
+              '& .MuiAutocomplete-listbox .MuiAutocomplete-option[aria-selected="true"]':
+                {
+                  backgroundColor: "white !important",
+                },
             }}
           >
             <FormControlLabel
               control={<Checkbox checked={selected} />}
               label={option.tag}
-              sx={{'& .MuiTypography-root': {fontSize: '12px'}}}
+              sx={{ "& .MuiTypography-root": { fontSize: "12px" } }}
             />
-            <Typography sx={{fontSize: '12px', }} color="text.secondary">
+            <Typography sx={{ fontSize: "12px" }} color="text.secondary">
               +{option.articles}
             </Typography>
           </li>
@@ -87,6 +100,7 @@ const Autocomplate = ({isOpen, handleClose, onInputFocus, handleAdd}) => {
         renderInput={(params) => (
           <TextField
             {...params}
+            inputRef={autocompleteRef}
             variant="standard"
             autoFocus={false}
             placeholder="Wyszukaj grupę lub tag"
@@ -109,16 +123,20 @@ const Autocomplate = ({isOpen, handleClose, onInputFocus, handleAdd}) => {
           <Paper>
             {children}
             <ListSubheader>
-              <Button disabled={selectedOptions.length > 0 ? false : true} variant="contained" onClick={handleSave} fullWidth>
+              <Button
+                disabled={selectedOptions.length === 0}
+                variant="contained"
+                onClick={handleSave}
+                fullWidth
+              >
                 Zapisz
               </Button>
             </ListSubheader>
           </Paper>
         )}
       />
-      
     </div>
   );
 };
 
-export default Autocomplate;
+export default AutocompleteComponent;
