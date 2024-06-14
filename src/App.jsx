@@ -7,8 +7,10 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import Tooltip from '@mui/material/Tooltip';
 
+import TagsSection from './sections/TagsSection';
+
 const sections = {
-  search: <Typography variant="h6">Sekcja wyszukiwania</Typography>,
+  tags: <TagsSection />,
   star: <Typography variant="h6">Sekcja gwiazdy</Typography>,
   settings: <Typography variant="h6">Sekcja ustawienia</Typography>,
   article: <Typography variant="h6">Sekcja artykuł</Typography>,
@@ -22,7 +24,7 @@ const App = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'flex-start', '& .MuiDrawer-docked': {width: '60px'}}}>
       <Drawer variant="permanent" sx={{ width: 240, height: 'auto', '& .MuiDrawer-paper': {
             top: 10,
             left: 10,
@@ -46,7 +48,7 @@ const App = () => {
               <ListItemIcon sx={{ minWidth: 'auto' }}><SettingsOutlinedIcon /></ListItemIcon>
             </Tooltip>
           </ListItem>
-          <ListItem button onClick={() => handleListItemClick('article')}>
+          <ListItem button onClick={() => handleListItemClick('tags')}>
             <Tooltip title="Tagi" placement="right" arrow>
               <ListItemIcon sx={{ minWidth: 'auto' }}><LocalOfferOutlinedIcon /></ListItemIcon>
             </Tooltip>
