@@ -8,12 +8,17 @@ import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import Tooltip from '@mui/material/Tooltip';
 
 import TagsSection from './sections/TagsSection';
+import Settings from './sections/Settings';
+import Comments from './sections/Comments';
+import Informations from './sections/Informations';
+import User from './sections/User';
 
 const sections = {
   tags: <TagsSection />,
-  star: <Typography variant="h6">Sekcja gwiazdy</Typography>,
-  settings: <Typography variant="h6">Sekcja ustawienia</Typography>,
-  article: <Typography variant="h6">Sekcja artykuł</Typography>,
+  information: <Informations />,
+  settings: <Settings />,
+  comments: <Comments />,
+  user: <User />
 };
 
 const App = () => {
@@ -33,12 +38,12 @@ const App = () => {
             borderRadius: 3
           }, }}>
         <List sx={{paddingTop: 2, paddingBottom: 2}}>
-          <ListItem button onClick={() => handleListItemClick('search')}>
+          <ListItem button onClick={() => handleListItemClick('information')}>
             <Tooltip title="Informacje" placement="right" arrow>
               <ListItemIcon sx={{ minWidth: 'auto' }}><InfoOutlinedIcon /></ListItemIcon>
             </Tooltip>
           </ListItem>
-          <ListItem button onClick={() => handleListItemClick('star')}>
+          <ListItem button onClick={() => handleListItemClick('comments')}>
             <Tooltip title="Komentarze" placement="right" arrow>
               <ListItemIcon sx={{ minWidth: 'auto' }}><ChatBubbleOutlineOutlinedIcon /></ListItemIcon>
             </Tooltip>
@@ -53,7 +58,7 @@ const App = () => {
               <ListItemIcon sx={{ minWidth: 'auto' }}><LocalOfferOutlinedIcon /></ListItemIcon>
             </Tooltip>
           </ListItem>
-          <ListItem button onClick={() => handleListItemClick('article')}>
+          <ListItem button onClick={() => handleListItemClick('user')}>
             <Tooltip title="Użytkownik" placement="right" arrow>
               <ListItemIcon sx={{ minWidth: 'auto' }}><PersonAddAltOutlinedIcon /></ListItemIcon>
             </Tooltip>

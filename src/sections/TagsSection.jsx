@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  IconButton,
-  CardActions,
-  Card,
-  CardContent,
-  Typography,
-  Button,
-  Box,
-} from "@mui/material";
+import { IconButton, Card, CardContent, Typography, Box } from "@mui/material";
 import Autocomplate from "../components/Autocomplate.jsx";
 import CloseIcon from "@mui/icons-material/Close";
 import Tag from "../components/Tag.jsx";
@@ -93,9 +85,7 @@ const TagsSection = () => {
               />
             ))
           ) : (
-            <Typography>
-              Lista jest pusta
-            </Typography>
+            <Typography>Lista jest pusta</Typography>
           )}
         </Box>
         <Box

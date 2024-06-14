@@ -51,6 +51,16 @@ const AutocompleteComponent = ({
     autocompleteRef.current.value = "";
   };
 
+  const sortOptions = (options, selectedOptions) => {
+    return options.sort((a, b) => {
+      const aSelected = selectedOptions.includes(a);
+      const bSelected = selectedOptions.includes(b);
+      if (aSelected && !bSelected) return -1;
+      if (!aSelected && bSelected) return 1;
+      return 0;
+    });
+  };
+
   return (
     <div>
       <StyledAutocomplete
@@ -60,7 +70,7 @@ const AutocompleteComponent = ({
           "& $.MuiOutlinedInput-root": { paddingRight: "0px" },
         }}
         multiple
-        options={options}
+        options={sortOptions(options, selectedOptions)}
         disableCloseOnSelect
         renderTags={() => null}
         getOptionLabel={(option) => option.tag}

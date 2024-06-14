@@ -1,15 +1,23 @@
-import React from 'react';
-import { Box, Typography, LinearProgress, Tooltip, IconButton } from '@mui/material';
-import InfoIcon from '@mui/icons-material/Info';
+import React from "react";
+import {
+  Box,
+  Typography,
+  Tooltip,
+  IconButton,
+} from "@mui/material";
+import InfoIcon from "@mui/icons-material/Info";
+import ProgressBar from "./ProgressBar";
 
 const StatusTagsMessage = () => {
   return (
-    <Box display="flex" flexDirection="column" alignItems="flex-start" padding="10px 0">
-      <Typography variant="body1" color="green">
-        Dobrze
-      </Typography>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="flex-start"
+      padding="10px 0"
+    >
       <Box width="100%" my={1}>
-        <LinearProgress variant="determinate" value={60} color="success" />
+        <ProgressBar level={5} />
       </Box>
       <Box display="flex" alignItems="center">
         <Tooltip title="Zbyt mało tagów. Dodaj jeszcze 1 aby poprawić widoczność artykułu">
